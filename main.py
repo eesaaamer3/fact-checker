@@ -17,7 +17,6 @@ def html_retrivel(u):
 
     if resp.status_code == 200:
         html_parser(BeautifulSoup(resp.content, "html.parser"))
-        #print(soup)
     else:
         print("ERROR: There was an issue while searching. Please try again")
 
@@ -33,5 +32,16 @@ def html_parser(soup):
             }
             results.append(item)
     print(len(results))
+    fact_check(len(results))
+
+def fact_check(r):
+    print("Working")
+    if r <= 5:
+        print("Fact is very likely to be FALSE. Do not trust.")
+    elif r > 5 and r < 10:
+        print("Fact likely contains FALSE information. Please conduct further research")
+    elif r >= 10:
+        print("Fact is most likely TRUE.")
+
 
 intro()
