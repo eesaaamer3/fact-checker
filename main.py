@@ -19,13 +19,13 @@ else:
     print("ERROR: There was an issue while searching. Please try again")
 
 results = []
-for g in soup.find_all('div', class_='r'):
-    anchors = g.find_all('a')
-    if anchors:
-        link = anchors[0]['href']
-        title = g.find('h3').text
+for elements in soup.find_all('div', class_='r'):
+    links = elements.find_all('a')
+    if links:
+        link = links[0]['href']
+        title = elements.find('h3').text
         item = {
             "title": title,
         }
         results.append(item)
-print(results)
+print(len(results))
