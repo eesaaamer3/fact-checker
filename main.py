@@ -35,13 +35,12 @@ def html_parser(soup):
     fact_check(len(results))
 
 def fact_check(r):
-    print("Working")
     if r <= 5:
         print("Fact is very likely to be FALSE. Do not trust.")
     elif r > 5 and r < 10:
-        print("Fact likely contains FALSE information. Please conduct further research")
+        print("Fact may contain FALSE information. Please conduct further research.")
     elif r >= 10:
-        print("Fact is most likely TRUE.")
+        print("Fact is TRUE.")
 
 
 intro()
