@@ -6,8 +6,8 @@ from bs4 import BeautifulSoup
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
 headers = {"user-agent" : USER_AGENT}
 
-def intro():
-    query = input("Enter in your fact: ")
+def initial_contact(query):
+    #query = input("Enter in your fact: ")
     query = query.replace(" ", "+")
     url = 'https://google.com/search?q="{}"'.format(query)
     html_retrivel(url)
@@ -31,16 +31,13 @@ def html_parser(soup):
                 "title": title,
             }
             results.append(item)
-    print(len(results))
     fact_check(len(results))
+
 
 def fact_check(r):
     if r <= 5:
-        print("Fact is very likely to be FALSE. Do not trust.")
+        answer_window("Fact is very likely to be FALSE. Do not trust.")
     elif r > 5 and r < 10:
-        print("Fact may contain FALSE information. Please conduct further research.")
+        answer_window("Fact may contain FALSE information. Please conduct further research.")
     elif r >= 10:
-        print("Fact is TRUE.")
-
-
-intro()
+        answer_window("Fact is TRUE.")

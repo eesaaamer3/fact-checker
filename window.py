@@ -1,7 +1,7 @@
 import tkinter as tk
+from main import * 
 
 main_window = tk.Tk()
-
 
 # Frames 
 main_frame = tk.Frame()
@@ -14,16 +14,12 @@ def info_submission():
     info = input.get()
     main_frame.pack_forget()
     title_frame.pack_forget()
-    answer_window()
-    return info
+    initial_contact(info)
 
 def rewind():
     answer_frame.pack_forget()
     rewind_frame.pack_forget()
     intro_window()
-
-# Fact check
-accuracy = "This is the answer!"
 
 # Components for intro window
 title = tk.Label(master = title_frame, text = "Fact Checker by Eesa Aamer", justify="center")
@@ -32,18 +28,24 @@ submission = tk.Button(master = main_frame, text="Submit", command = info_submis
 input = tk.Entry(master = main_frame, width = 50)
 
 # Components for answer window
-answer = tk.Label(master=answer_frame, text=accuracy)
-rewind_time = tk.Button(master=rewind_frame, text="Click here to enter another fact!", command = rewind)
+rewind_time = tk.Button(
+    master = rewind_frame, 
+    text = "Click here to enter another fact!", 
+    command = rewind,
+    height = 3
+    )
 
 # Function that develops the answer window
-def answer_window():
+def answer_window(x):
+    print(x)
+    # declares components
+    answer = tk.Label(master=answer_frame, text=x, height=5)
     # develops the frames
     answer_frame.pack()
     rewind_frame.pack()
     # develops the components in the frame
     answer.grid(row=0, column=0)
     rewind_time.grid(row=1, column=0)
-
 
 
 # Function that develops the intro window
