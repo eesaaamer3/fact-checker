@@ -49,6 +49,7 @@ def fact_check(r):
 ### CODE FOR FRONT END WINDOW
 
 main_window = tk.Tk()
+main_window.title("Fact Checker App")
 
 # Frames 
 main_frame = tk.Frame()
@@ -86,7 +87,7 @@ rewind_time = tk.Button(
 
 # Function that develops the answer window
 def answer_window(x):
-    print(x)
+    main_window.geometry("700x200")
     # declares components
     answer = tk.Label(master=answer_frame, text=x, height=5)
     # develops the frames
@@ -99,6 +100,7 @@ def answer_window(x):
 
 # Function that develops the intro window
 def intro_window():
+    main_window.geometry("700x100")
     # develops frames
     title_frame.pack()
     main_frame.pack()
